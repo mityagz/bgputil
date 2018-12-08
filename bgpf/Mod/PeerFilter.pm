@@ -121,10 +121,10 @@ ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." deny    192.0.0.0/24 
 ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." deny    223.255.255.0/24 le 32
 ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." deny    224.0.0.0/3 le 32
 ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." deny    169.254.0.0/16 le 32
-ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." permit  81.90.208.0/20
-ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." permit  62.192.32.0/19
-ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." deny    81.90.208.0/20 le 32
-ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." deny    62.192.32.0/19 le 32
+ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." permit  xx.xx.xx.0/20
+ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." permit  xx.xx.xx.0/19
+ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." deny    xx.xx.xx.0/20 le 32
+ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." deny    xx.xx.xx.0/19 le 32
 ip prefix-list Advertise.BGP-".$peer_name."-AS".$aut_num." permit  0.0.0.0/0 le 24\n\n";
 
 

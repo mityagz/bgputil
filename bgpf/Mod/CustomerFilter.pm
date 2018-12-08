@@ -148,10 +148,10 @@ $filter_out0 = "
 !ip prefix-list Advertise.BGP-Customer-FR deny    223.255.255.0/24 le 32
 !ip prefix-list Advertise.BGP-Customer-FR deny    224.0.0.0/3 le 32
 !ip prefix-list Advertise.BGP-Customer-FR deny    169.254.0.0/16 le 32
-!ip prefix-list Advertise.BGP-Customer-FR permit  81.90.208.0/20
-!ip prefix-list Advertise.BGP-Customer-FR permit  62.192.32.0/19
-!ip prefix-list Advertise.BGP-Customer-FR deny    81.90.208.0/20 le 32
-!ip prefix-list Advertise.BGP-Customer-FR deny    62.192.32.0/19 le 32
+!ip prefix-list Advertise.BGP-Customer-FR permit  xx.xx.xx.0/20
+!ip prefix-list Advertise.BGP-Customer-FR permit  xx.xx.xx.0/19
+!ip prefix-list Advertise.BGP-Customer-FR deny    xx.xx.xx.0/20 le 32
+!ip prefix-list Advertise.BGP-Customer-FR deny    xx.xx.xx.0/19 le 32
 !ip prefix-list Advertise.BGP-Customer-FR permit  0.0.0.0/0
 !ip prefix-list Advertise.BGP-Customer-FR permit  0.0.0.0/0 le 24
 
@@ -201,7 +201,7 @@ if(defined($hash_ref->{$hr}->{n})){ $n_bgpq = ''; }
 
 #-JE -R24
 
-open(BGPQ, "bgpq -j ".$n_bgpq." -l".$as_path_list_num." -f ".$aut_num."  ".$as."|") or die "Error open bgpq\n";
+open(BGPQ, "bgpq -J ".$n_bgpq." -l".$as_path_list_num." -f ".$aut_num."  ".$as."|") or die "Error open bgpq\n";
 while($as_filter_char = <BGPQ>){$as_filter .= $as_filter_char}
 close(BGPQ);
 
