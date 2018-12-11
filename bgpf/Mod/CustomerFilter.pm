@@ -196,7 +196,7 @@ if(defined($as_set)){
 }
 
 #$n_bgpq = '-H';
-$n_bgpq = '';
+$n_bgpq = '-3';
 if(defined($hash_ref->{$hr}->{n})){ $n_bgpq = ''; }
 
 #-JE -R24
@@ -210,7 +210,9 @@ while($prefix_list_char = <BGPQ>){$prefix_list .= $prefix_list_char}
 
 close(BGPQ);
 
-$filter_in0 = "policy-statement Customer-BGP-".$peer_name."-AS".$aut_num."-IN {
+$filter_in0 = "policy-options {
+   replace:
+   policy-statement Customer-BGP-".$peer_name."-AS".$aut_num."-IN {
      term Customer-BGP-".$peer_name."-AS".$aut_num."-IN-100 {
          from {
  	     as-path-group ".$as_path_list_num.";
@@ -276,14 +278,17 @@ $filter_in0 = "policy-statement Customer-BGP-".$peer_name."-AS".$aut_num."-IN {
 	     accept;
 	}
      }
-     term Customer-BGP-".$peer_name."-AS".$aut_num."-IN-140 {
+     term Customer-BGP-".$peer_name."-AS".$aut_num."-IN-150 {
 	 then reject;
      }
+}
 }
 
  \n\n";
 
-$input_inner_filter=" policy-statement Receiving.BGP-".$peer_name."-AS".$aut_num." {
+$input_inner_filter=" policy-options {
+  replace:
+  policy-statement Receiving.BGP-".$peer_name."-AS".$aut_num." {
 	term  Receiving.BGP-".$peer_name."-AS".$aut_num."-100 {
 	    from {
 		".$prefix_list."
@@ -293,12 +298,14 @@ $input_inner_filter=" policy-statement Receiving.BGP-".$peer_name."-AS".$aut_num
 	term Receiving.BGP-".$peer_name."-AS".$aut_num."-110 {
 	    then reject;
       }
+  }
  }";
 
 #$filter_in1 = $prefix_list."\n".$as_filter."\n".$input_inner_filter."
 $filter_in1 = $as_filter."\n".$input_inner_filter."
+\n";
 
-
+=item
 !set policy-options community CommunityFlush-AS3333.BGP-Customer-IN members \"3333:[014-9]....\"
 !set policy-options community CommunitySet-AS3333.BGP-Customer-IN members 3333:10340
 
@@ -307,6 +314,7 @@ $filter_in1 = $as_filter."\n".$input_inner_filter."
 !set policy-options community LocalPref.110 members 3333:20110
 !set policy-options community LocalPref.50 members 3333:20050
 !set policy-options community LocalPref.90 members 3333:20090\n";
+=cut
 
 
 $filter_in = $filter_in0.$filter_in1;
