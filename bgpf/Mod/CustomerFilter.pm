@@ -278,7 +278,6 @@ $filter_in0 = "policy-options {
      term Customer-BGP-".$peer_name."-AS".$aut_num."-IN-140 {
          from {
  	     as-path-group ".$as_path_list_num.";
- 	     community LocalPref.110;
  	     policy Receiving.BGP-".$peer_name."-AS".$aut_num.";
          }
          then {
