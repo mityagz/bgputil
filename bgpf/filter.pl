@@ -61,14 +61,6 @@ getopts( "$opt_string", \%opt ) or usage();
 usage() if (keys %opt) == 0;
 
 
-#################################################################
-# graceful_shutdown
-#
-# Description:
-#   We can be in one of the three states: 
-#     STATE_CONNECTED, STATE_LOCKED, STATE_CONFIG_LOADED
-#   Take actions depending on the current state
-#################################################################
 sub graceful_shutdown {
    my ($jnx, $state, $success) = @_;
    if ($state >= STATE_CONFIG_LOADED) {
@@ -103,12 +95,6 @@ sub graceful_shutdown {
    exit;
 }
 
-################################################################
-# get_error_info
-#
-# Description:
-#   Print the error information
-################################################################
 sub get_error_info {
     my %error = @_;
 

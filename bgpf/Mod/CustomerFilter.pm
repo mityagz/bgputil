@@ -213,6 +213,16 @@ close(BGPQ);
 $filter_in0 = "policy-options {
    replace:
    policy-statement Customer-BGP-".$peer_name."-AS".$aut_num."-IN {
+     term Customer-BGP-".$peer_name."-AS".$aut_num."-IN-90 {
+         from {
+             validation-database invalid;
+ 	     as-path-group ".$as_path_list_num.";
+ 	     policy Receiving.BGP-".$peer_name."-AS".$aut_num.";
+         }
+         then {
+	     reject;
+	}
+     }
      term Customer-BGP-".$peer_name."-AS".$aut_num."-IN-100 {
          from {
  	     as-path-group ".$as_path_list_num.";
