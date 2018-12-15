@@ -312,8 +312,8 @@ $input_inner_filter=" policy-options {
  }";
 
 #$filter_in1 = $prefix_list."\n".$as_filter."\n".$input_inner_filter."
-##$filter_in1 = $as_filter."\n".$input_inner_filter."
-$as_filter = "/* ".$peer_name." AS".$aut_num." as-path filter */\n".$as_filter;
+#$filter_in1 = $as_filter."\n".$input_inner_filter.";
+##$as_filter = "/* ".$peer_name." AS".$aut_num." as-path filter */\n".$as_filter;
 $filter_in1 = $as_filter."\n".$input_inner_filter."
 \n";
 
