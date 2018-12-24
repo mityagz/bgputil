@@ -236,9 +236,11 @@ $dbh = DBI->connect( "dbi:Pg:dbname=bgpf;host=127.0.0.1;port=5432",'bgpf', 'bgpf
     			    graceful_shutdown($jnx, STATE_CONNECTED, REPORT_FAILURE);
 			}
 
-			my $config = $hash_ref->{$hr}->{filter_in};
+			#my $config = $hash_ref->{$hr}->{filter_in};
+			#my $config_out = $hash_ref->{$hr}->{filter_out};
+			my $config = $hash_ref->{$hr}->{filter_in}." \n ".$hash_ref->{$hr}->{filter_out};
 			$queryargs{'config-text'} = '<configuration-text>' . $config. '</configuration-text>';
-
+			
 			$res = $jnx->edit_config(%queryargs);
 
 			# See if you got an error
