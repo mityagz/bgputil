@@ -92,6 +92,7 @@ policy-statement Receiving.BGP-".$peer_name." {
         route-filter 223.255.255.0/24 orlonger;
         route-filter 224.0.0.0/3 orlonger;
         route-filter 169.254.0.0/16 orlonger;
+	route-filter 0.0.0.0/0 prefix-length-range /25-/32
     }
     then accept;
  }
@@ -267,7 +268,7 @@ community Not.Advertisement.BGP-".$peer_name." members \"3333:10[124]..|3333:31"
 community CommunityMatch-AS3333.BGP-Customer-OUT members 3333:10340;
 
 
-policy-statement BGP-".$peer_name."-OUT {
+policy-statement Upstream-BGP-".$peer_name."-AS".$aut_num."-OUT {
 term BGP-".$peer_name."-OUT-90 {
     from {
         protocol aggregate;
