@@ -232,7 +232,7 @@ $filter_in0 = "policy-options {
          then {
 	     local-preference 10;
 	     community delete CommunityFlush-AS3333.BGP-Customer-IN;
-	     community set CommunitySet-AS3333.BGP-Customer-IN;
+	     community add CommunitySet-AS3333.BGP-Customer-IN;
 	     accept;
 	}
      }
@@ -245,7 +245,7 @@ $filter_in0 = "policy-options {
          then {
 	     local-preference 50;
 	     community delete CommunityFlush-AS3333.BGP-Customer-IN;
-	     community set CommunitySet-AS3333.BGP-Customer-IN;
+	     community add CommunitySet-AS3333.BGP-Customer-IN;
 	     accept;
 	}
      }
@@ -258,7 +258,7 @@ $filter_in0 = "policy-options {
          then {
 	     local-preference 90;
 	     community delete CommunityFlush-AS3333.BGP-Customer-IN;
-	     community set CommunitySet-AS3333.BGP-Customer-IN;
+	     community add CommunitySet-AS3333.BGP-Customer-IN;
 	     accept;
 	}
      }
@@ -271,7 +271,7 @@ $filter_in0 = "policy-options {
          then {
 	     local-preference 100;
 	     community delete CommunityFlush-AS3333.BGP-Customer-IN;
-	     community set CommunitySet-AS3333.BGP-Customer-IN;
+	     community add CommunitySet-AS3333.BGP-Customer-IN;
 	     accept;
 	}
      }
@@ -283,7 +283,7 @@ $filter_in0 = "policy-options {
          then {
 	     local-preference 110;
 	     community delete CommunityFlush-AS3333.BGP-Customer-IN;
-	     community set CommunitySet-AS3333.BGP-Customer-IN;
+	     community add CommunitySet-AS3333.BGP-Customer-IN;
 	     accept;
 	}
      }
