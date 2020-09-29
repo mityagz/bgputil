@@ -1,0 +1,70 @@
+remarks:        +-----------------------------------------------------------
+remarks:        | BGP COMMUNITIES
+remarks:        +-----------------------------------------------------------
+remarks:        | Communities for prefix classification
+remarks:        +-----------------------------------------------------------
+remarks:        | All inbound prefixes are marked with BGP communities.
+remarks:        | Format for the of community 3333:10SNN where:
+remarks:        |
+remarks:        | S - source of the prefix:
+remarks:        |
+remarks:        | 1 - Upstream
+remarks:        | 2 - Peer
+remarks:        | 3 - Customer
+remarks:        |
+remarks:        | NN - source of the prefix:
+remarks:        | Upstream:
+remarks:        | 01 - some upstream
+remarks:        |
+remarks:        | Peer:
+remarks:        | 01 - some peer
+remarks:        |
+remarks:        | Customer:
+remarks:        | 10 - Static routes
+remarks:        | 40 - BGP
+remarks:        |
+remarks:        +-----------------------------------------------------------
+remarks:        | Communities for prefix control
+remarks:        +-----------------------------------------------------------
+remarks:        |
+remarks:        | - To prepend or deny prefix use 3333:3DNNA, where:
+remarks:        |
+remarks:        | D - destination of the prepend or deny action:
+remarks:        | 1 - Upstreams
+remarks:        | 2 - Peers
+remarks:        | NN - Upstream or peer number:
+remarks:        |
+remarks:        | Upstreams:
+remarks:        | 01 - some upstream
+remarks:        | 99 - All upstreams
+remarks:        |
+remarks:        | Peer:
+remarks:        | 01 - some peer
+remarks:        | 99 - All peers
+remarks:        |
+remarks:        | A - action:
+remarks:        |
+remarks:        | 0 - don't announce prefix
+remarks:        | 1 - announce with one prepend
+remarks:        | 2 - announce with two times prepend
+remarks:        | 3 - announce with three times prepend
+remarks:        |
+remarks:        | - For change the Local Preference for prefix use 3333:20NNN,
+remarks:        | where:
+remarks:        | NNN | Value Local Preference
+remarks:        | ----+-----------------------
+remarks:        | 010 | 10 (lowest) (BACKUP)
+remarks:        | 050 | 50
+remarks:        | 090 | 90
+remarks:        | 100 | 100
+remarks:        | 110 | 110 (highest) (PREFFERED)
+remarks:        | Default Local Preference are:
+remarks:        | 40 - Upstream
+remarks:        | 80 - Peer
+remarks:        | 110 - Customer
+remarks:        |
+remarks:        | - For a change of direction traffic that will left given AS use 3333:40NN0,
+remarks:        | NN - Upstream or peer number:
+remarks:        | 
+remarks:        | Upstreams:
+remarks:        | 01 - some upstream
